@@ -14,18 +14,19 @@ const userSchema = new Schema(
             required: true,
             unique: true,
         },
-        thoughts: {
-            //how to set up?
-        },
-        friends: {
-            //how to set up?
-        }
+        thoughts: [{
+            type: Schema.Types.ObjectId,
+            ref: "Thought",
+        }],
+        friends: [{
+            type: Schema.Types.ObjectId,
+            ref: "User",
+        }],
     },
     {
         toJSON: {
             getters: true,
         },
-        reactions: [reactionSchema],
     }
 );
 

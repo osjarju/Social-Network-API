@@ -26,11 +26,11 @@ connection.once('open', async () => {
         });
     };
 
-    await Thought.collection.inserMany(thoughts);
+    await Thought.collection.insertMany(thoughts);
 
     thoughts.forEach(() => makeUser(getRandomUser(10)));
 
-    await User.collection.inserMany(users);
+    await User.collection.insertMany(users);
 
     console.table(thoughts);
     console.table(users);
